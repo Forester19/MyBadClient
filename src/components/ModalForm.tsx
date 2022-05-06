@@ -4,6 +4,7 @@ import {UserType} from "../types/User";
 import {useMutation, useQuery} from "@apollo/client";
 import {GET_ALL_USERS} from "../query/User";
 import {CREATE_USER} from "../mutation/User";
+import logo from "../logo.svg";
 
 const style = {
     width: 400,
@@ -12,6 +13,13 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
+
+const wrapperStyle = {
+    display: 'flex',
+    flexFlow: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
 
 const ModalForm = () => {
     const [users, setUsers] = useState<UserType[]>([]);
@@ -50,7 +58,8 @@ const ModalForm = () => {
         return <h1>Loading...</h1>
     }
 
-    return <div>
+    return <div style={wrapperStyle}>
+        <img src={logo} className="App-logo" alt="logo" />
         <Box sx={style}>
             <div style={{display: "flex", flexFlow: "column"}}>
                 <TextField sx={{margin: '10px'}} id="outlined-basic" label="Username"
